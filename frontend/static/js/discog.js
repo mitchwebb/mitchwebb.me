@@ -16,7 +16,6 @@ function createDiscogGallery(discogData, discCount) {
         albumArt.setAttribute('class', 'album-art');
         albumArt.setAttribute('alt', `album art for ${discogData[i][3]}`);
         albumArt.src  = `./images/${discogData[i][3]}`;
-        albumArt.style.height = '15vw';
         // Attach descriptions for hover display
         albumDescription = document.createElement('p');
         albumDescription.setAttribute('class', 'album-description');

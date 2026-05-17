@@ -52,7 +52,7 @@ html[data-theme='dark'] {
         text-align: center;
         margin: 0;
         padding: 0;
-        min-height: 100vh;
+        min-height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -70,43 +70,31 @@ html[data-theme='dark'] {
 
     #copyright {
         margin-top: 10px;
-        font-size: 12px;
+        font-size: .8rem;
     }
 
     #main-title {
-        font-size: min(10vw, max(5vh, 35.56px));
+        font-size: min(5rem, max(3rem, 35.56px));
         font-weight: normal;
-        margin: .6em;
-        margin-bottom: .3em;
-        letter-spacing: .1em;
+        letter-spacing: .1rem;
     }
-/* 
-    #landing-page-wrapper {
-        height: 70vh;
-        justify-content: center;
-        grid-template-rows: 15% 85%;
-    } */
 
     #footer {
-        font-size: min(4vw, max(2vh, 1em));
+        font-size: 1rem;
         bottom: 0;
-        margin: 1em 0;
-    }
-
-    #welcome-screen {
-        min-height: 100vh;
+        margin: 2rem 0;
     }
 
     #little-critter {
         transition: all .5s ease-in-out;
-        width: min(90vw, max(45vh, 320px));
+        width: min(90%, max(45dvh, 320px));
     }
 
     #little-critter:hover {
         transition: all 2s;
         transition-timing-function: cubic-bezier(0, .8, 1, 1);
-        -webkit-filter: drop-shadow(0px 0px 25vw #fe513f);
-        filter: drop-shadow(0px 0px 25vw #fe513f);
+        -webkit-filter: drop-shadow(0px 0px 2rem #fe513f);
+        filter: drop-shadow(0px 0px 2rem #fe513f);
     }
 
     #critter-backdrop {
@@ -120,7 +108,7 @@ html[data-theme='dark'] {
     }
 
     .section-title {
-        font-size: 3em;
+        font-size: 3rem;
     }
 
     [data-theme='dark'] #critter-backdrop {
@@ -133,11 +121,12 @@ html[data-theme='dark'] {
     }
 
     #full-page {
-        margin: 50px 0;
+        margin: 1rem;
     }
 
     h3 {
-        font-size: 2em;
+        font-size: 2rem;
+        margin: 2rem 0;
     }
 
     #role-titles {
@@ -147,7 +136,7 @@ html[data-theme='dark'] {
 
     .textbox {
         font-size: 14px;
-        padding: 1em 0;
+        padding: 1rem 0;
         max-width: 75%;
         margin: auto;
     }
@@ -156,7 +145,7 @@ html[data-theme='dark'] {
         text-align: justify;
         text-justify: auto;
         width: 75%;
-        max-width: 60em;
+        max-width: 60rem;
     }
 
     .button {
@@ -201,28 +190,37 @@ html[data-theme='dark'] {
 
     #contact-form {
         max-width: 750px;
-        width: 70vw;
+        width: 70%;
         margin: 50px auto;
     }
 
-    #email-address {
-        width: 300px;
-        max-width: 75%;
-        margin-top: 10px;
-        margin-bottom: 10px;
+    #contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
     }
 
     #message {
-        height: 40vh;
-        max-height: 900px;
-        margin: 10px 0px;
         width: 100%;
+        min-height: 10rem;
+    }
+
+    #email-address {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    #submit-button-wrapper {
+        width: 100%;
+        align-items: end;
     }
 
     #submit-button {
         float: right;
         border: 1px solid var(--border);
         border-radius: 10px;
+        width: fit-content;
+        margin-right: 0;
     }
 
     .contact-container {
@@ -235,52 +233,61 @@ html[data-theme='dark'] {
       
 /* Album View CSS */
 
+    #discography-page {
+        margin: 1rem;
+    }
+
     #discography {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        margin: 50px auto;
-        margin-bottom: 75px;
-        max-width: 63vw;
-        gap: 1vw;
+        margin: 1rem 0;
+        padding: 1rem;
+        width: 100%;
+        gap: 1rem;
+        justify-content: center;
+        align-content: center;
+        box-sizing: border-box;
     }
 
     #discog-description {
         margin: auto;
-        max-width: 50vw;
+        margin-bottom: 2rem;
+        max-width: 90%;
     }
 
     .album {
         position: relative;
         box-shadow: 0px 6px 6px 0px var(--container-shadow);
-        margin: auto;
-        min-height: 200px;
-        max-height: 15vw;
         min-width: 200px;
-        max-width: 15vw;
+        max-width: 300px;
+        width: 30%;
         overflow: hidden;
     }
 
     .album-art {
-        min-height: 200px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
     .album-description {
         position: absolute;
-        height: 15vw;
-        width: 15vw;
-        min-height: 200px;
-        min-width: 200px;
         top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
         background: var(--container-fore);
         color: var(--text-primary);
         visibility: hidden;
         opacity: 0;
-        margin: auto;
         transition: opacity .2s, visibility .2s;
         align-items: center;
         display: flex;
         justify-content: center;
         text-decoration: underline;
+        padding: 0;
+        margin: 0;
     }
 
     .album:hover .album-description, .album:active .album-description {
@@ -298,7 +305,7 @@ html[data-theme='dark'] {
     #projects-container a {
         width: min(100%, 80vh);
         min-width: 275px;
-        max-width: 500px;
+        max-width: 400px;
     }
 
     .project-photo {
@@ -320,6 +327,7 @@ html[data-theme='dark'] {
         justify-content: center;
         gap: 30px;
         margin: 0 50px 75px 50px;
+        align-items: end;
     }
 
     #projects-header {
@@ -333,12 +341,6 @@ html[data-theme='dark'] {
         display: inline-block;
         /* To horizontally center images and caption */
         text-align: center;
-        /* The width of the container also implies margin around the images. */
-        /* min-width: 200px;
-        max-width: 30vw; */
-        /* box-shadow: 0px 0px 6px 2px var(--container-shadow); */
-        /* border: 1px solid var(--border); */
-        /* background-color: var(--container-back); */
         padding: 15px;
         transition: all .25s ease-in-out;
         border-radius: 1%;
@@ -346,33 +348,21 @@ html[data-theme='dark'] {
         padding: 0;
     }
 
-    /* figure.project:hover {
-        box-shadow: 0px 0px 10px 4px var(--container-shadow);
-        color: black;
-    } */
-
     .project-wrapper {
         position: relative;
         box-shadow: 0px 3px 6px 4px var(--container-shadow);
         margin: auto;
-        /* min-width: 200px;
-        width: 80%;
-        max-width: 80vw; */
-        /* overflow: hidden; */
-        /* border: 1px solid var(--border); */
         background-color: var(--container-fore);
     }
 
     .project-header {
         /* Make the caption a block so it occupies its own line. */
         display: block;
-    
-        /* border: 1px dotted var(--border);
-        background-color: var(--container-fore); */
     }
 
     .project-header h3 {
-        margin: .5em auto;
+        font-size: 1.5rem;
+        margin: .5rem auto;
     }
 
     .project-description {
@@ -396,7 +386,7 @@ html[data-theme='dark'] {
         align-items: center;
         display: flex;
         justify-content: center;
-        padding: .5em;
+        padding: .5rem;
         box-sizing: border-box;
         /* text-decoration: underline; */
     }
@@ -408,8 +398,4 @@ html[data-theme='dark'] {
 
     .project:hover .project-photo, .project:active .project-photo{
         filter: blur(1px);
-    }
-
-    .copyright {
-        font-size: max(1vh, 1.5em);
     }

@@ -11,10 +11,29 @@
     <div class="centered">
 
         <div id="titlebox" class="textbox">
-            <h3 class="section-title">Visualization Projects:</h3>
+            <h3 class="section-title">Projects</h3>
         </div>
 
         <div id="projects-container">
+            <a href="https://txinverts.tacc.utexas.edu" target=”_blank”>
+                <figure id="tx-inverts-project" class="project">
+                    <figcaption class="project-header"> 
+                        <h3>Texas Inverts</h3>
+                    <figcaption/>
+                    <div class="project-wrapper">
+                        <img 
+                            class="project-photo" 
+                            src="{{ url_for('static', filename='./images/tx-inverts-screenshot.jpg') }}" 
+                            alt="texas inverts project page" 
+                            width="100%"
+                        > 
+                        <p class="project-description">
+                            a Texas Parks and Wildlife tool that provides scratch
+                            conservation rankings for Texas' invertebrate species (in progress)
+                        </p>
+                    </div>
+                </figure>
+            </a>
             <a href="https://angademo.mitchwebb.me" target=”_blank”>
                 <figure id="anga-demo-project" class="project">
                     <figcaption class="project-header"> 
@@ -48,7 +67,7 @@
                         > 
                         <p class="project-description">
                             an educational audio tool built in React to showcase
-                            the orchestration of the natural world.
+                            the orchestration of the natural world
                         </p>
                     </div>
                 </figure>
