@@ -1,21 +1,19 @@
 /* Contact Form */
 
-input {
-    text-align: left;
-    font-family: 'Montserrat';
-    font-size: 14px;
-}
 input:focus::placeholder {
     color: transparent;
 }
 
+textarea:focus::placeholder {
+    color: transparent;
+}
+
+input,
 textarea {
     text-align: left;
     font-family: 'Montserrat';
-    font-size: 14px;
-}
-textarea:focus::placeholder {
-    color: transparent;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 #contact-page-wrapper {
@@ -23,20 +21,30 @@ textarea:focus::placeholder {
 }
 
 #contact-form {
-    max-width: 750px;
-    width: 70%;
-    margin: 50px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 #contact-form form {
+    max-width: 750px;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#contact-form label {
+    margin-bottom: 0.5rem;
 }
 
 #message {
     width: 100%;
     min-height: 10rem;
+    box-sizing: border-box;
 }
 
 #email-address {
