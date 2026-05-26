@@ -1,49 +1,41 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} mihtmo {% endblock title %} {%
+block body %}
 
-{% block title %}
-    mihtmo
-{% endblock title %}
-
-{% block body %}
-
-    <div class="centered">
-        <h3>Hey, I'm Mitch</h3>
-        <div id="about-me" class="textbox">
-            <p>
-                I'm a web developer and audio engineer living in Austin, TX. Ecology
-                and conservation are regularly at the heart of my work.
-            </p>
-            <p>
-                My professional focus is at the intersection of ecology and data. 
-                I am currently a conservation data scientist at the UT Insect Collections,
-                working on a Texas Parks and Wildlife grant to provide preliminary conservation
-                rankings for Texas' 30,000+ invertebrate species. Check out the project
-                <a href="https://txinverts.tacc.utexas.edu" target="_blank">here</a>
-                as I continue its development. Alongside this project, I am working with
-                researchers at UNT and abroad to develop methods for cleaning the often-difficult
-                occurrence data that fuel projects like this.
-            </p>
-            <p>
-                This website you're currently on is built on a Flask backend and doesn't use any 
-                additional frontend framework (although my various projects linked <a href="/projects">here</a>
-                use frameworks like React and Svelte). While I very much enjoy working in these frameworks, 
-                I also enjoy keeping my website intentionally simple—there's a certain charm to it.
-            </p>
-            <p>
-                I'm always trying to learn new ways to serve the natural world around me.
-                If you have any ideas or if you'd just like to chat, 
-                <a href="/contact">send me a message.</a>
-            </p>
-            <br/>
-            <p class="centered">
-                ~ thank you for visiting ~
-            </p>
-        </div>
+<div class="centered">
+    <h3 class="section-title">Hey, I'm Mitch</h3>
+    <div id="about-me" class="textbox">
+        <p>
+            I'm a web developer and audio engineer living in Austin, TX. Ecology
+            and conservation are regularly at the heart of my work.
+        </p>
+        <p>
+            My professional focus is at the intersection of ecology and data. I
+            am currently a conservation data scientist at the UT Insect
+            Collections, working on a Texas Parks and Wildlife grant to provide
+            preliminary conservation rankings for Texas' 30,000+ invertebrate
+            species. Check out the project
+            <a href="https://txinverts.tacc.utexas.edu" target="_blank">here</a>
+            as I continue its development. Alongside this project, I am working
+            with researchers at UNT and abroad to develop methods for cleaning
+            the often-difficult occurrence data that fuel projects like this.
+        </p>
+        <p>
+            This website you're currently on is built on a Flask backend and
+            doesn't use any additional frontend framework (although my various
+            projects linked <a href="/projects">here</a>
+            use frameworks like React and Svelte). While I very much enjoy
+            working in these frameworks, I also enjoy keeping my website
+            intentionally simple—there's a certain charm to it.
+        </p>
+        <p>
+            I'm always trying to learn new ways to serve the natural world
+            around me. If you have any ideas or if you'd just like to chat,
+            <a href="/contact">send me a message.</a>
+        </p>
+        <p class="centered">~ thank you for visiting ~</p>
     </div>
+</div>
 
-{% endblock body %}
-
-{% block footer %}
+{% endblock body %} {% block footer %}
 <a href="/">home</a>
-|
-{% endblock footer %}
+| {% endblock footer %}

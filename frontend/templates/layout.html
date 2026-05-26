@@ -1,60 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html data-theme='light' lang="en">
-
+<html data-theme="light" lang="en">
     <head>
-
         <title>{% block title %}{% endblock title %}</title>
 
         <!-- Compatibility and scaling -->
-        <meta charset="utf-8">
-        <meta 
-            name="viewport" 
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
             content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"
-        >
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+        />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
 
         <!-- favicon -->
-        <link rel="shortcut icon" href="{{ url_for('static', filename='stranger.png') }}">
+        <link
+            rel="shortcut icon"
+            href="{{ url_for('static', filename='stranger.png') }}"
+        />
 
         <!-- style -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link 
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
             rel="stylesheet"
-        > 
-        <link href="{{ url_for('static', filename='./css/styles.css') }}" rel="stylesheet">
+        />
+        <link
+            href="{{ url_for('static', filename='./css/styles.css') }}"
+            rel="stylesheet"
+        />
 
-        <!-- <script>
+        <script>
             const currentTheme = window.localStorage.getItem('theme');
-            console.log(currentTheme);
             document.documentElement.setAttribute('data-theme', currentTheme);
-        </script> -->
+        </script>
 
         {% block head %}{% endblock head %}
-
     </head>
 
     <body>
-        <div id="full-page">
-            {% block body %}{% endblock  body %}
-
-            <footer id="footer" role="navigation">
-                {% block footer %}{% endblock footer %}
-                <a href="/projects">projects</a>
-                |
-                <a href="/discography">discography</a>
-                |
-                <a href="/me">me</a>
-                |
-                <a href="/contact">contact</a>
-                <div id="copyright">copyright &copy; 2024 mihtmo</div>
-            </footer>
-            <div id="copyright"></div>
+        <div id="full-page-wrapper">
+            <div id="page-width-wrapper">
+                {% block body %}{% endblock body %}
+                <div>
+                    <footer id="footer" role="navigation">
+                        {% block footer %}{% endblock footer %}
+                        <a href="/projects">projects</a>
+                        |
+                        <a href="/discography">discography</a>
+                        |
+                        <a href="/me">me</a>
+                        |
+                        <a href="/contact">contact</a>
+                        <div id="copyright">copyright &copy; 2024 mihtmo</div>
+                    </footer>
+                </div>
+            </div>
         </div>
-        
     </body>
 </html>

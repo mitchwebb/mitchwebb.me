@@ -1,0 +1,132 @@
+{% extends "layout.html" %} {% block title %} thinkin' {% endblock title %} {%
+block head %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='./css/current_ventures.css') }}"
+/>
+{% endblock head %} {% block body %}
+
+<div class="centered">
+    <h3 class="section-title">Journal Digitization</h3>
+    <div id="current-ventures-body" class="textbox">
+        <p>
+            I'm currently experimenting with ways to semi-digitize my journals.
+            At face value, that sentence makes me roll my eyes. I keep journals
+            as a manual, handwritten practice for a reason. As a compromise,
+            instead of digitizing my journals in their entirety, my goal is to
+            create a database for keyword searching my entries. I'm curious to
+            find mentions of people, recipes, and places when I can't pinpoint
+            their relevant dates in my own memory. This tool wouldn't be a way
+            to view my journals on screen, but instead would be a way to more
+            easily find which page to physically flip to.
+        </p>
+        <img
+            id="journal-sample-img"
+            class="document-sample"
+            src="{{ url_for('static', filename='./images/journal-sample-img.jpg') }}"
+        />
+        <p>
+            While one of the most obvious and effective solutions for
+            text-recognition exists in feeding the entries into an existing LLM,
+            I find the idea of providing my own history and memories to a
+            service intent on ingesting all data, public or private, intensely
+            uncomfortable. And anyway, if I'm trying to learn, there are many
+            cases in which a locally-hosted, offline process would be preferred.
+            So on to other solutions.
+        </p>
+        <p>
+            I chose to start with a simple sample page, using a picture taken on
+            my phone. The text is <i>relatively</i> clear, the line heights are
+            fairly even, the text is at a slight tilt, and the lines bleed over
+            each other vertically a bit. It's a mix of known problems in a
+            neater-than-average style (compared to a lot of my journaling),
+            photographed in a convenient way—it should be a decent test.
+        </p>
+        <p>
+            Handwriting is a special case for optical character recognition
+            (OCR). It's easier to recognize a uniform font, and it's especially
+            easier to read documents of a known format. Not having a known
+            format means there are two steps: Identify <i>where</i> the text is,
+            then identify <i>what</i> the text says. I'm starting with a few
+            possible solutions.
+        </p>
+        <ul>
+            <li>
+                EasyOCR for Detection and Recognition (Free, Open Source,
+                Offline)
+            </li>
+            <li>
+                EasyOCR for Detection + TrOCR for Text Recognition (Free, Open
+                Source, Offline)
+            </li>
+            <li>NAPS2 (Free, Open Source, Offline)</li>
+            <li>Handwriting OCR (Paid Solution, free trial)</li>
+        </ul>
+        <p>
+            EasyOCR, as the name suggests, makes it easy to instantly attempt
+            some detection and recognition on the image. This is a somewhat
+            manual, Python-based process. The results are... mixed:
+        </p>
+        <pre id="easyocr-output">
+    [0:86] a man and a teenager seen in May 2018 , 2006 in
+    [110:178] " I'm writing all of this as a test . A test of different our actions . "
+    [178:230] the real spot is to use this project as a well to key-word search ...
+    [230:288] " MUDWN BUMALS , and , if I were a brewer person , should just
+    [288:333] a member my launch as a test photo . " "
+    [333:413] " However , that that another with my personal musings ...
+    [431:505] " So , for now , I'll just stuck with something a little less interesting , ...
+    [505:552] " And in little more stitched ... tomorrow . No.000500000003000
+    [589:652] five been thinking about iconography for another project : ,
+    [652:710] " The Texas Invertoordert , What making the Perfect Man TV ...
+    [710:754] atypical advertisement on methods tool : 1 ... " "
+    [754:806] " it's hint me thinking about state birds , bugs plants . S.P. ENOMAIN
+    [806:863] " that the electoral is something charismatic and presence Mr. U.
+    [863:912] " Ainsussen ? Maybe , the monarch comes to mind : " in many other
+    [912:969] " Aithecipened that the selection is just as common in many- mer-
+    [969:1071] to have been the best of the respective categories .
+    [1071:1140] " But they realise themorable , and people like them : ...
+    [1140:1269] and say the making bird is an interactive theme to some
+    [1269:1328] " A Zawin' but then have interesting behavior , but why not pick
+    [1328:1385] " An endimil's request there aren't many , but there are sure ...
+    [1385:1453] " Recognifiable and charming ones : ... " ... ... "
+    [1453:1605] is it got to have a mascot that the general public labels ever in the
+    [1615:1688] " I am't know the endemic , endangered inverts aren't particularly ...
+    [1688:1738] " I'm your return then the I'm I'm tell everyone . It
+    [1738:1835] " The concisprings rifle beetle seems like a fun chocol 1 2 3/
+    [1835:1965] " Okay , that's good form .
+        </pre>
+        <p>
+            Not only does the output consistently fall below a 50% confidence
+            threshold and return a good amount of garbled nonsense, but the text
+            recognition seems to be hallucinating some interesting strings of
+            words. That being said, it <i>is</i> working. There are many words
+            and chunks of text that are at least recognizable.
+        </p>
+        <p>
+            Training will help, but we can first check on the detection steps.
+        </p>
+        <img
+            id="detection-sample-img"
+            class="document-sample"
+            src="{{ url_for('static', filename='./images/easyocr-detection-sample.jpg') }}"
+        />
+        <p>
+            Visualizing the detection boxes in Python reveals an array of
+            issues. Ideally, in a document like this, detection boxes would be
+            uniform, would span the whole row of text, and wouldn't contain
+            multiple lines. This clearly isn't the case, and the tilt on the
+            page could be to blame for a lot of these issues. While it would be
+            nice to expect straight documents, this isn't a guarantee. With
+            handwriting, it isn't even a guarantee that the lines are at a
+            uniform tilt when compared to one another.
+        </p>
+        <p>
+            Let's work on optimizing the detection parameters (to be
+            continued...)
+        </p>
+    </div>
+</div>
+
+{% endblock body %} {% block footer %}
+<a href="/">home</a>
+| {% endblock footer %}

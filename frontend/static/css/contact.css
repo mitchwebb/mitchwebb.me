@@ -1,0 +1,65 @@
+/* Contact Form */
+
+input {
+    text-align: left;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+input:focus::placeholder {
+    color: transparent;
+}
+
+textarea {
+    text-align: left;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+textarea:focus::placeholder {
+    color: transparent;
+}
+
+#contact-page-wrapper {
+    width: 100%;
+}
+
+#contact-form {
+    max-width: 750px;
+    width: 70%;
+    margin: 50px auto;
+}
+
+#contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#message {
+    width: 100%;
+    min-height: 10rem;
+}
+
+#email-address {
+    width: 100%;
+    max-width: 300px;
+}
+
+#submit-button-wrapper {
+    width: 100%;
+    align-items: end;
+}
+
+#submit-button {
+    float: right;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: fit-content;
+    margin-right: 0;
+}
+
+.contact-container {
+    background-color: var(--container-fore);
+    border: 1px dotted var(--border);
+    padding: 5px;
+    color: var(--text-primary);
+}

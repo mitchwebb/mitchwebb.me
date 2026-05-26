@@ -1,94 +1,78 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block head %}
 
-{% block head %}
+<link href="./css/record-viewer.css" rel="stylesheet" />
+<script src="https://threejs.org/build/three.js"></script>
 
-    <link href="./css/record-viewer.css" rel="stylesheet">
-    <script src="https://threejs.org/build/three.js"></script> 
+{% endblock head %} {% block title %} go touch grass! {% endblock title %} {%
+block body %}
 
-{% endblock head %}
-
-{% block title %}
-
-    go touch grass!
-
-{% endblock title %}
-
-
-{% block body %}
-
-        <div class="centered">
-        <!-- <canvas id="three-record" class="three"></canvas> -->
-        <!-- <div id="title">Touch Grass</div> -->
-        <div id="dummy-container">
-            <div id="record-container" class="expanded-slight">
-                <div id="jacket-front"></div>
-                <div id="jacket-thickness"></div>
-                <div id="jacket-back">
-                    <div id="jacket-back-slider" class="back-slider"></div>
-                </div>
-                <div id="vinyl-front"></div>
-                <div id="vinyl-back">
-                    <div id="vinyl-back-slider" class="back-slider"></div>
-                </div>
+<div id="record-viewer" class="centered">
+    <!-- <canvas id="three-record" class="three"></canvas> -->
+    <!-- <div id="title">Touch Grass</div> -->
+    <div id="dummy-container">
+        <div id="record-container" class="expanded-slight">
+            <div id="jacket-front"></div>
+            <div id="jacket-thickness"></div>
+            <div id="jacket-back">
+                <div id="jacket-back-slider" class="back-slider"></div>
+            </div>
+            <div id="vinyl-front"></div>
+            <div id="vinyl-back">
+                <div id="vinyl-back-slider" class="back-slider"></div>
             </div>
         </div>
-
-        <!-- TODO: Could shorten this by adding some attributes via JS -->
-        <div id="open-record-wrapper">
-            <div id="open-record-container">
-                <div id="open-record-left-wrapper">
-                    <div id="jacket-front-large" class="jacket-large"></div>
-                    <div id="vinyl-back-large" class="vinyl-large"></div>
-                </div>
-                <div id="sleeve-wrapper">
-                    <div id="sleeve-front" class="sleeve"></div>
-                    <div id="sleeve-back" class="sleeve"></div>
-                </div>
-                <div id="open-record-right-wrapper">
-                    <div id="vinyl-front-large" class="vinyl-large"></div>
-                    <div id="jacket-back-large" class="jacket-large"></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="toolbar">
-            <div id="rotate-album-icon" class="icon rotate-icon"></div>
-            <div id="album-out-icon" class="icon"></div>
-            <div id="rotate-sleeve-icon" class="icon rotate-icon"></div>
-            <div id="album-in-icon" class="icon"></div>
-        </div>
-        <iframe 
-            id="bandcamp-player" 
-            src="https://bandcamp.com/EmbeddedPlayer/album=2352475633/size=large/bgcol=ff0000/linkcol=0687f5/artwork=none/transparent=true/" 
-            seamless
-        >
-            <a href="https://mihtmo.bandcamp.com/album/touch-grass">
-                Touch Grass by mihtmo
-            </a>
-        </iframe>
-        <script 
-            src="{{ url_for('static', filename='./js/recordViewer.js') }}">
-        </script>
-        <script 
-            type="module" 
-            src="{{ url_for('static', filename='./js/threejs/OrbitControls.js') }}">
-        </script>
-        <script 
-            type="module" 
-            src="{{ url_for('static', filename='./js/threeRecord.js') }}">
-        </script>
-
     </div>
-    
-{% endblock body %}
 
-{% block footer %}
+    <!-- TODO: Could shorten this by adding some attributes via JS -->
+    <div id="open-record-wrapper">
+        <div id="open-record-container">
+            <div id="open-record-left-wrapper">
+                <div id="jacket-front-large" class="jacket-large"></div>
+                <div id="vinyl-back-large" class="vinyl-large"></div>
+            </div>
+            <div id="sleeve-wrapper">
+                <div id="sleeve-front" class="sleeve"></div>
+                <div id="sleeve-back" class="sleeve"></div>
+            </div>
+            <div id="open-record-right-wrapper">
+                <div id="vinyl-front-large" class="vinyl-large"></div>
+                <div id="jacket-back-large" class="jacket-large"></div>
+            </div>
+        </div>
+    </div>
 
-    <!-- <div id="three-button">
+    <div id="toolbar">
+        <div id="rotate-album-icon" class="icon rotate-icon"></div>
+        <div id="album-out-icon" class="icon"></div>
+        <div id="rotate-sleeve-icon" class="icon rotate-icon"></div>
+        <div id="album-in-icon" class="icon"></div>
+    </div>
+    <iframe
+        id="bandcamp-player"
+        src="https://bandcamp.com/EmbeddedPlayer/album=2352475633/size=large/bgcol=ff0000/linkcol=0687f5/artwork=none/transparent=true/"
+        seamless
+    >
+        <a href="https://mihtmo.bandcamp.com/album/touch-grass">
+            Touch Grass by mihtmo
+        </a>
+    </iframe>
+    <script src="{{ url_for('static', filename='./js/recordViewer.js') }}"></script>
+    <script
+        type="module"
+        src="{{ url_for('static', filename='./js/threejs/OrbitControls.js') }}"
+    ></script>
+    <script
+        type="module"
+        src="{{ url_for('static', filename='./js/threeRecord.js') }}"
+    ></script>
+</div>
+
+{% endblock body %} {% block footer %}
+
+<!-- <div id="three-button">
         <input type="checkbox" id="three-checkbox" name="three-checkbox" onclick="enable3D()">
         <label for="three-button">Enable Three.js Version (drag to rotate)</label>
     </div> -->
 
-    <a href="/">home</a>
-    |
-{% endblock footer %}
+<a href="/">home</a>
+| {% endblock footer %}

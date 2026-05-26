@@ -1,0 +1,74 @@
+{% extends "layout.html" %} ] {% block title %} occurrence records {% endblock
+title %} {% block head %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='./css/occurrence_records.css') }}"
+/>
+{% endblock head %} {% block body %}
+<div class="centered">
+    <h3 class="section-title">Invert Occurrence Records</h3>
+    <div id="occurrence-records-body" class="textbox">
+        <p>
+            For now, this page is somewhat a placeholder for an ongoing research
+            project on which I'm a collaborator. The project consists of various
+            tools to help retrieve, filter, harmonize, and clean nature
+            occurrence records. While the target of this project is invertebrate
+            occurrence records, most of the tools are agnostic towards taxon
+            type. Until this manuscript is out, I'm going to keep it vague.
+        </p>
+        <p>
+            <figure id="beebdc-logo-figure">
+                <img
+                    id="beebdc-logo"
+                    src="{{ url_for('static', filename='./images/beebdc.png') }}"
+                />
+                <figcaption>
+                    Figure adapted from Dorey et al. (2023), Scientific Data.
+                    <a href="https://doi.org/10.1038/s41597-023-02626-w"
+                        >https://doi.org/10.1038/s41597-023-02626-w</a
+                    >
+                </figcaption>
+            </figure>
+            That being said, there's one piece of this work that
+            <i>is</i> public. While taking part in this project, I worked with
+            James Dorey on some improvements to his R package called
+            <a href="https://github.com/jbdorey/BeeBDC/" target="_blank"
+                >BeeBDC</a
+            >. Most notably, I contributed code for DateFindR, a function
+            responsible for seeking through DarwinCore-style occurrence records
+            with missing event dates in order to find unambiguous date
+            information and place it in its relevant column.
+        </p>
+        <p>
+            For anyone who hasn't worked with occurrence records, dates are one
+            of the most crucial pieces of information for making use of
+            ecological data. And for anyone who hasn't worked with date-centric
+            data, dates are one of the most frustrating, varied, and
+            often-ambiguous data types to work with. Within the greater invert
+            occurrence records pipeline, this function has been able to recover
+            date information for crucial occurrence records, altering our
+            perception of a species' presence and conservation needs.
+        </p>
+        <p>
+            My contribution to this code involved improving the regex used to
+            recognize and parse unambiguous dates. The question of what makes a
+            date unambiguous can be argued, and how desperate you are to recover
+            data dictates how much you let through. In some newer industries,
+            09/23 would very clearly refer to September, 2023. In other, older
+            practices (like ecology), this year could refer to 1923 (or even
+            1823). And what if that date was written by an eccentric, forgetful
+            scientist, and it <i>really</i> refers to September 23rd? These are
+            the sorts of logical improvements I sought to contribute.
+        </p>
+        <p>
+            My contributions to this other, unreleased paper involved various
+            improvements to data retrieval, management, filtering, conservation
+            metric calculation, and overall assistance with the structure and
+            management of the project as a collaborative whole. When the paper
+            is published, I will update this page with more information!
+        </p>
+    </div>
+</div>
+{% endblock body %} {% block footer %}
+<a href="/">home</a>
+| {% endblock footer %}

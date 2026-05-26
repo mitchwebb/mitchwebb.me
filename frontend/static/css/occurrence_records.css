@@ -1,0 +1,22 @@
+#occurrence-records-body {
+    text-align: left;
+}
+
+#beebdc-logo {
+    height: 200px;
+}
+
+#beebdc-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#beebdc-logo-figure {
+    float: right;
+    width: 200px;
+}
+
+#beebdc-logo-figure figcaption {
+    font-size: 0.5rem;
+    color: grey;
+}

@@ -1,43 +1,33 @@
-{% extends "layout.html" %}
-
-{% block head %}
+{% extends "layout.html" %} {% block head %}
 
 <!-- Greet that cute ol' user based on time of day -->
-    <script>
-        let currentTime = new Date().getHours();
-        // Fallback
-        let greeting = "Mitch Webb"
-        if (currentTime >= 6 && currentTime <= 11){
-            greeting = "mornin'"
-        }
-        else if (currentTime > 11 && currentTime <= 17){
-            greeting = "good afternoon"
-        }
-        else if (currentTime >17 && currentTime <= 21){
-            greeting = "evenin'"
-        }
-        else if (currentTime >21 && currentTime <= 1){
-            greeting = "g'nite"
-        }
-        else {
-            let greeting = "feeling sleepy"
-        }
-        document.title = greeting
-    </script>
-    <!-- <script src='{{ url_for('static', filename='./js/themes.js') }}'></script> -->
+<script>
+    let currentTime = new Date().getHours();
+    // Fallback
+    let greeting = 'Mitch Webb';
+    if (currentTime >= 6 && currentTime <= 11) {
+        greeting = "mornin'";
+    } else if (currentTime > 11 && currentTime <= 17) {
+        greeting = 'good afternoon';
+    } else if (currentTime > 17 && currentTime <= 21) {
+        greeting = "evenin'";
+    } else if (currentTime > 21 && currentTime <= 1) {
+        greeting = "g'nite";
+    } else {
+        let greeting = 'feeling sleepy';
+    }
+    document.title = greeting;
+</script>
+<script src='{{ url_for('static', filename='./js/themes.js') }}'></script>
 
-{% endblock head %}
-
-
-{% block body %}
-
-    <div id="landing-page-wrapper" class="centered">
-        <h3 id="main-title"> Mitch Webb </h3>
-        <img 
-            id="little-critter" 
-            src="{{ url_for('static', filename='./images/marimba.png') }}" 
-            alt="african giant black millipede named marimba in hand"
-            contextmenu="event.preventDefault"
-        >
-    </div>
+{% endblock head %} {% block body %}
+<div id="critter-wrapper">
+    <img
+        id="little-critter"
+        src="{{ url_for('static', filename='./images/marimba_hires.png') }}"
+        alt="african giant black millipede named marimba in hand"
+        contextmenu="event.preventDefault"
+        onclick="nextTheme()"
+    />
+</div>
 {% endblock body %}

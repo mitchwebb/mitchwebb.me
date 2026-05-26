@@ -1,50 +1,40 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} select discography {% endblock
+title %} {% block head %}
+<script src="{{ url_for('static', filename='js/discog.js') }}"></script>
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='./css/discography.css') }}"
+/>
+{% endblock head %} {% block body %}
 
-{% block title %}
-
-    select discography
-
-{% endblock title %}
-
-{% block head %}
-
-    <script src="{{ url_for('static', filename='js/discog.js') }}"></script>
-
-{% endblock head %}
-
-{% block body %}
-
-    <div id="discography-page" class="centered">
-        <div class="titlebox">
-            <h3 class="section-title">Select Discography</h3>
-            <p id="discog-description">
-                Here are a few of the musical projects I've been a part of.
-                Give 'em a hover to see more info, or give 'em a click to go to
-                the artist's page.
+<div id="discography-page" class="centered">
+    <div id="discog-titlebox">
+        <h3 id="discog-title" class="section-title">Select Discography</h3>
+        <div id="discog-description">
+            <p class="subheader">
+                Here are a few of the musical projects I've been a part of. Give
+                'em a hover or a click.
             </p>
-            <ul id="role-titles">
-                <li>Producer (P)</li>
-                <li>Engineer (E)</li>
-                <li>Mixer (M)</li>
-                <li>Composer (C)</li>
-                <li>Performer (PE)</li>
-            </ul>
         </div>
-
-        <div id="discography">
-           <script>
-                discogData = JSON.parse('{{ discographyData|tojson|safe }}');
-                discCount = '{{ discCount }}';
-                createDiscogGallery(discogData, discCount)
-            </script>
-        </div>
+        <ul id="role-titles">
+            <li>Producer (P)</li>
+            <li>Engineer (E)</li>
+            <li>Mixer (M)</li>
+            <li>Composer (C)</li>
+            <li>Performer (PE)</li>
+        </ul>
     </div>
 
-{% endblock body %}
+    <div id="discography">
+        <script>
+            discogData = JSON.parse('{{ discographyData|tojson|safe }}');
+            discCount = '{{ discCount }}';
+            createDiscogGallery(discogData, discCount);
+        </script>
+    </div>
+</div>
 
-{% block footer %}
+{% endblock body %} {% block footer %}
 
-    <a href="/">home</a>
-    |
-
-{% endblock footer %}
+<a href="/">home</a>
+| {% endblock footer %}

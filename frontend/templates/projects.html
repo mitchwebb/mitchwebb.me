@@ -1,158 +1,194 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} coding projects {% endblock title
+%} {% block head %}
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='./css/projects.css') }}"
+/>
+{% endblock head %} {% block body %}
 
-{% block title %}
-
-    coding projects
-
-{% endblock title %}
-
-{% block body %}
-
-    <div class="centered">
-
-        <div id="titlebox" class="textbox">
-            <h3 class="section-title">Projects</h3>
-        </div>
-
-        <div id="projects-container">
-            <a href="https://txinverts.tacc.utexas.edu" target=”_blank”>
-                <figure id="tx-inverts-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Texas Inverts</h3>
-                    <figcaption/>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/tx-inverts-screenshot.jpg') }}" 
-                            alt="texas inverts project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            a Texas Parks and Wildlife tool that provides scratch
-                            conservation rankings for Texas' invertebrate species (in progress)
-                        </p>
-                    </div>
-                </figure>
-            </a>
-            <a href="https://angademo.mitchwebb.me" target=”_blank”>
-                <figure id="anga-demo-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Austin Native Gardening</h3>
-                    <figcaption/>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/anga-screenshot.png') }}" 
-                            alt="austin native gardening project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            a resource to help austin-area folk find local native plants
-                            for native insects
-                        </p>
-                    </div>
-                </figure>
-            </a>
-            <a href="https://soundexplorer.mitchwebb.me" target=”_blank”>
-                <figure id="sound-explorer-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Sound Explorer</h3>
-                    <figcaption/>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/sound-explorer-project.png') }}" 
-                            alt="sound explorer project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            an educational audio tool built in React to showcase
-                            the orchestration of the natural world
-                        </p>
-                    </div>
-                </figure>
-            </a>
-            <a href="/spottedlanternfly"> 
-                <figure id="lanternfly-project" class="project">
-                    <figcaption class="project-header">
-                        <h3>Spotted Lanternfly</h3>
-                    </figcaption>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/lanternfly-screenshot.jpg') }}" 
-                            alt="lanternfly project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            an interactive map showing the spread of the spotted 
-                            lanternfly across North America
-                        </p>
-                    </div>
-                </figure>
-            </a>
-            <a href="https://weatherblanket.mitchwebb.me">
-                <figure id="weatherblanket-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Weatherblanket</h3>
-                    </figcaption>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/weatherblanket-screenshot.jpg') }}" 
-                            alt="weatherblanket project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            a colorful visual showing daily temperature and 
-                            precipitation levels for several cities in Texas
-                        </p>
-                    </div>
-                </figure>
-            </a>
-            <a href="/touchgrass">
-                <figure id="recordviewer-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Record Viewer</h3>
-                    </figcaption>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/record-viewer-screenshot.png') }}" 
-                            alt="record viewer project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            a virtual vinyl-listening experience
-                        </p>
-                    </div>
-                </figure>
-            </a>    
-            <a href="/discography">
-                <figure id="discography-project" class="project">
-                    <figcaption class="project-header"> 
-                        <h3>Discography</h3>
-                    <figcaption/>
-                    <div class="project-wrapper">
-                        <img 
-                            class="project-photo" 
-                            src="{{ url_for('static', filename='./images/discography-project.png') }}" 
-                            alt="discography project page" 
-                            width="100%"
-                        > 
-                        <p class="project-description">
-                            a display for studio albums I've worked on, coded to 
-                            pull its contents from a CSV
-                        </p>
-                    </div>
-                </figure>
-            </a>
-        </div>
+<div class="centered">
+    <div class="textbox">
+        <h3 class="section-title">Projects</h3>
     </div>
 
-{% endblock body %}
+    <div id="projects-container">
+        <a href="https://txinverts.tacc.utexas.edu">
+            <figure id="tx-inverts-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Texas Inverts</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/tx-inverts-screenshot.jpg') }}"
+                        alt="texas inverts project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        a Texas Parks and Wildlife tool that provides scratch
+                        conservation rankings for Texas' invertebrate species
+                        (in progress)
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="/current">
+            <figure id="tx-inverts-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Ongoing</h3>
+                    <h4 class="project-subheader">(Text Recognition)</h4>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/easyocr_detection.png') }}"
+                        alt="current projects page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        an occasionally updated, text page about projects I'm
+                        currently thinking about—at the moment, my mind is on
+                        text digitization
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="/occurrence-records">
+            <figure id="tx-inverts-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Occurrence Records</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/invert-occurrences.jpg') }}"
+                        alt="invert occurrence records page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        data tools for filtering invertebrate occurrence
+                        records, cleaning poorly managed data, date recovery,
+                        and more
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="https://angademo.mitchwebb.me">
+            <figure id="anga-demo-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Austin Native Gardening</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/anga-screenshot.png') }}"
+                        alt="austin native gardening project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        a resource to help austin-area folk find local native
+                        plants for native insects
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="https://soundexplorer.mitchwebb.me">
+            <figure id="sound-explorer-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Sound Explorer</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/sound-explorer-project.png') }}"
+                        alt="sound explorer project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        an educational audio tool built in React to showcase the
+                        orchestration of the natural world
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="/spottedlanternfly">
+            <figure id="lanternfly-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Spotted Lanternfly</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/lanternfly-screenshot.jpg') }}"
+                        alt="lanternfly project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        an interactive map showing the spread of the spotted
+                        lanternfly across North America
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="https://weatherblanket.mitchwebb.me">
+            <figure id="weatherblanket-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Weatherblanket</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/weatherblanket-screenshot.jpg') }}"
+                        alt="weatherblanket project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        a colorful visual showing daily temperature and
+                        precipitation levels for several cities in Texas
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="/touchgrass">
+            <figure id="recordviewer-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Record Viewer</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/record-viewer-screenshot.png') }}"
+                        alt="record viewer project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        a virtual vinyl-listening experience
+                    </p>
+                </div>
+            </figure>
+        </a>
+        <a href="/discography">
+            <figure id="discography-project" class="project">
+                <figcaption class="project-header">
+                    <h3>Discography</h3>
+                </figcaption>
+                <div class="project-wrapper">
+                    <img
+                        class="project-photo"
+                        src="{{ url_for('static', filename='./images/discography-project.png') }}"
+                        alt="discography project page"
+                        width="100%"
+                    />
+                    <p class="project-description">
+                        a display for studio albums I've worked on, coded to
+                        pull its contents from a CSV
+                    </p>
+                </div>
+            </figure>
+        </a>
+    </div>
+</div>
 
-{% block footer %}
-    <a href="/">home</a>
-    |
-{% endblock footer %}
+{% endblock body %} {% block footer %}
+<a href="/">home</a>
+| {% endblock footer %}
